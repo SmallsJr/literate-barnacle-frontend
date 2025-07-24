@@ -1,0 +1,73 @@
+.file-list-modal {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    width: 90%;
+    max-width: 600px;
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .file-list-container {
+    flex: 1;
+    overflow-y: auto;
+    margin-top: 15px;
+  }
+  
+  .file-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .file-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    border-bottom: 1px solid #e2e8f0;
+    transition: background 0.2s;
+  }
+  
+  .file-item:hover {
+    background: #f8fafc;
+  }
+  
+  .file-icon {
+    font-size: 1.8rem;
+    margin-right: 15px;
+  }
+  
+  .file-details {
+    flex: 1;
+  }
+  
+  .file-name {
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+  
+  .file-meta {
+    display: flex;
+    gap: 15px;
+    font-size: 0.85rem;
+    color: #64748b;
+  }
+  
+  .file-type {
+    text-transform: uppercase;
+  }
+  
+  .loading-files {
+    text-align: center;
+    padding: 30px;
+    color: #64748b;
+  }
+  
+  .empty-files {
+    text-align: center;
+    padding: 30px;
+    color: #64748b;
+    font-style: italic;
+  }

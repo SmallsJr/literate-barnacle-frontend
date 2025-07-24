@@ -1,79 +1,21 @@
-import React, { useState } from 'react';
-import './App.css';
-import VisualizationPanel from './components/VisualizationPanel';
-import ThoughtProcess from './components/ThoughtProcess';
-import FileCount from './components/FileCount';
-import ChatArea from './components/ChatArea';
-import SettingsModal from './components/SettingsModal';
-
-function App() {
-  const [showSettings, setShowSettings] = useState(false);
-  const [fileCount, setFileCount] = useState(12);
-  const [messages, setMessages] = useState([
-    { content: "Hello! How can I assist you today?", sender: "ai" }
-  ]);
-  const [thoughtSteps, setThoughtSteps] = useState([
-    "1. Analyzing user intent",
-    "2. Querying knowledge base",
-    "3. Generating response candidates",
-    "4. Applying safety filters",
-    "5. Formatting final response"
-  ]);
-
-  const handleSend = (message) => {
-    if (!message.trim()) return;
-    
-    // Add user message
-    const newMessages = [...messages, { content: message, sender: "user" }];
-    setMessages(newMessages);
-    
-    // Simulate AI response
-    setTimeout(() => {
-      const aiResponses = [
-        `I understand your question about "${message.substring(0, 20)}...". Here's the information you requested.`,
-        `Based on our documentation, ${message} can be implemented using our API endpoints.`,
-        "I've analyzed your request and found 3 potential solutions...",
-        "The system processed your input and generated the following recommendations:"
-      ];
-      setMessages([...newMessages, { 
-        content: aiResponses[newMessages.length % aiResponses.length], 
-        sender: "ai" 
-      }]);
-    }, 1000);
-  };
-
-  const handleAddFile = () => {
-    setFileCount(prev => prev + Math.floor(Math.random() * 3) + 1);
-  };
-
-  return (
-    <div className="app-container">
-      <VisualizationPanel />
-      
-      <div className="thought-process">
-        <h3>Reasoning Steps</h3>
-        {thoughtSteps.map((step, index) => (
-          <div key={index} className="reasoning-step">
-            {step}
-          </div>
-        ))}
-        <FileCount count={fileCount} onAddFile={handleAddFile} />
-      </div>
-      
-      <ChatArea messages={messages} onSend={handleSend} />
-      
-      <button 
-        className="settings-btn" 
-        onClick={() => setShowSettings(true)}
-      >
-        ⚙️
-      </button>
-      
-      {showSettings && (
-        <SettingsModal onClose={() => setShowSettings(false)} />
-      )}
-    </div>
-  );
+:root {
+  --primary: #2563eb;
+  --secondary: #1e40af;
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --text: #1e293b;
 }
 
-export default App;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  height: 100vh;
+  background-color: var(--bg);
+  color: var(--text);
+  padding: 20px;
+}

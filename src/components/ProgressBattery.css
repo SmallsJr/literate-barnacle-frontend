@@ -1,0 +1,86 @@
+.progress-battery {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.battery-container {
+  width: 80px;
+  height: 24px;
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+
+.battery-fill {
+  height: 100%;
+  transition: width 0.5s ease;
+}
+
+.battery-tip {
+  position: absolute;
+  right: -4px;
+  top: 6px;
+  width: 4px;
+  height: 12px;
+  background: #cbd5e1;
+  border-radius: 0 2px 2px 0;
+}
+
+.battery-percentage {
+  font-size: 0.8rem;
+  font-weight: 600;
+  min-width: 40px;
+}
+/* Add to ProgressBattery.css */
+.battery-fill {
+  height: 100%;
+  transition: width 0.5s ease;
+  position: relative;
+}
+
+.battery-fill::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+/* Error state */
+.progress-battery.error {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #ef4444;
+  font-weight: 600;
+}
+
+.error-icon {
+  font-size: 1.2rem;
+}
+
+/* Loading state */
+.status-loading {
+  color: #64748b;
+  font-style: italic;
+}
