@@ -111,6 +111,11 @@ const StorageLocationForm = ({ location, onSave, onCancel }) => {
         </div>
 
         <div className="form-group">
+          <label>Crawler Status</label>
+          <ProgressBattery percentage={editingLocation.crawler_status || 0} />
+        </div>
+
+        <div className="form-group">
           <label>Region</label>
           <input
             type="text"
