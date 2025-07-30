@@ -1,9 +1,10 @@
 import React, { useState } from "react";
+import ProgressBattery from "./ProgressBattery";
 
 const StorageLocationForm = ({ location, onSave, onCancel }) => {
   const [formData, setFormData] = useState({
     name: "",
-    provider: "",
+    type: "",
     bucket: "",
     access_key: "",
     secret_key: "",
@@ -52,7 +53,7 @@ const StorageLocationForm = ({ location, onSave, onCancel }) => {
         <div className="form-group">
           <label>Provider *</label>
           <select
-            name="provider"
+            name="type"
             value={formData.provider}
             onChange={handleChange}
             required
@@ -111,11 +112,6 @@ const StorageLocationForm = ({ location, onSave, onCancel }) => {
         </div>
 
         <div className="form-group">
-          <label>Crawler Status</label>
-          <ProgressBattery percentage={editingLocation.crawler_status || 0} />
-        </div>
-
-        <div className="form-group">
           <label>Region</label>
           <input
             type="text"
@@ -124,6 +120,13 @@ const StorageLocationForm = ({ location, onSave, onCancel }) => {
             onChange={handleChange}
           />
         </div>
+
+        {location && (
+          <div className="form-group">
+            <label>Crawler Status</label>
+            <ProgressBattery percentage={location.crawler_status || 0} />
+          </div>
+        )}
 
         <div className="form-actions">
           <button
