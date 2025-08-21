@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import VisualizationPanel from "./components/VisualizationPanel";
+import DataAnalysisPanel from "./components/DataAnalysisPanel";
 import FileCount from "./components/FileCount";
 import ChatArea from "./components/ChatArea";
 import SettingsModal from "./components/SettingsModal";
@@ -100,7 +100,7 @@ function App() {
 
   return (
     <div className="app-container">
-      <VisualizationPanel />
+      <DataAnalysisPanel />
 
       <div className="thought-process">
         <h3>Reasoning Steps</h3>
